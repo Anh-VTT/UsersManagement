@@ -6,50 +6,77 @@ package fa3w.controllers;
 
 import fa3w.user.UserDAO;
 import fa3w.user.UserDTO;
+import fa3w.user.UserError;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author votra
  */
-@WebServlet(name = "UpdateController", urlPatterns = {"/UpdateController"})
-public class UpdateController extends HttpServlet {
+@WebServlet(name = "CreateController", urlPatterns = {"/CreateController"})
+public class CreateController extends HttpServlet {
 
-    private static final String ERROR = "SearchController";
-    private static final String SUCCESS = "SearchController";
-    
-
+    private static final String ERROR="createPage.jsp";
+    private static final String SUCCESS="login.jsp";
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url= ERROR;
+        UserError userError = new UserError();
         try {
+            boolean checkValidation = true;
+            UserDAO dao = new UserDAO();
             String userID = request.getParameter("userID");
             String fullName = request.getParameter("fullName");
             String roleID = request.getParameter("roleID");
-            UserDTO loginUser = (UserDTO) request.getSession().getAttribute("LOGIN_USER");
-            UserDAO dao = new UserDAO();
-            UserDTO user = new UserDTO(userID, fullName, roleID, "");
-            boolean check = dao.update(user);
-            if (check) {
-                url = SUCCESS;
-                if(userID.equals(loginUser.getUserID())){
-                    loginUser.setFullName(fullName);
-                    loginUser.setRoleID(roleID);
-                    request.getSession().setAttribute("LOGIN_USER", loginUser);
-                }
+            String password = request.getParameter("password");
+            String confirm = request.getParameter("confirm");
+            //validation o day
+            
+            if(userID.length() < 2 || userID.length() > 5){
+                checkValidation = false;
+                userError.setUserIDError("User ID must be in [2,5]");
             }
+//            boolean checkDuplicate = dao.checkDuplicate(userID);
+//            if(checkDuplicate){
+//                checkValidation = false;
+//                userError.setUserIDError("Duplicate userID!!!");
+//            }
+            if(fullName.length() < 5 || fullName.length() > 10){
+                checkValidation = false;
+                userError.setFullNameError("Full Name must be in [5,10]");
+            }
+            if(!password.equals(confirm)){
+                checkValidation = false;
+                userError.setConfirmError("Both password are not same!!");
+            }
+            if(checkValidation){
+//                boolean checkInsert = dao.insert(new UserDTO(userID, fullName, roleID, password));
+                boolean checkInsert = dao.insertV2(new UserDTO(userID, fullName, roleID, password));
+                if(checkInsert){
+                    url = SUCCESS;
+                }else{
+                    userError.setError("Unknow error!!!");
+                    request.setAttribute("USER_ERROR", userError);
+                }
+            }else{
+                request.setAttribute("USER_ERROR", userError);
+            }
+            
+            
         } catch (Exception e) {
-            log("Error at UpdateController: " + e.toString());
-        } finally {
+            log("Error at CreaterController: "+ e.toString());
+            if(e.toString().contains("duplicate")){
+                userError.setUserIDError("Duplicate ID!!!");
+                request.setAttribute("USER_ERROR", userError);
+            }
+        }finally{
             request.getRequestDispatcher(url).forward(request, response);
         }
     }

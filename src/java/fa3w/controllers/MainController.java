@@ -26,6 +26,10 @@ public class MainController extends HttpServlet {
     private static final String UPDATE_CONTROLLER = "UpdateController";
     private static final String DELETE = "Delete";
     private static final String DELETE_CONTROLLER = "DeleteController";
+    private static final String CREATE_PAGE = "Create Page";
+    private static final String CREATE_PAGE_VIEW = "createPage.jsp";
+    private static final String CREATE = "Create";
+    private static final String CREATE_CONTROLLER = "CreateController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,11 +43,16 @@ public class MainController extends HttpServlet {
                 url = LOGIN_CONTROLLER;
             } else if (SEARCH.equals(action)) {
                 url = SEARCH_CONTROLLER;
-            }else if (UPDATE.equals(action)) {
+            } else if (UPDATE.equals(action)) {
                 url = UPDATE_CONTROLLER;
-            }else if (DELETE.equals(action)) {
+            } else if (DELETE.equals(action)) {
                 url = DELETE_CONTROLLER;
+            } else if (CREATE_PAGE.equals(action)) {
+                url = CREATE_PAGE_VIEW;
+            } else if (CREATE.equals(action)) {
+                url = CREATE_CONTROLLER;
             }
+
         } catch (Exception e) {
             log("Error at  MainController: " + e.toString());
         } finally {

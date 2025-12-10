@@ -19,6 +19,10 @@
             <input type="submit" name="action" value="Login"/>
             <input type="reset" value="Reset"/>
         </form>
+        <form action="MainController" method="POST">
+            <input type="submit" name="action" value="Create Page"/>
+        </form>
+        <a href="MainController?action=Create Page">Create Page</a>
         <%
             String error = (String) request.getAttribute("error");
             if (error == null)
