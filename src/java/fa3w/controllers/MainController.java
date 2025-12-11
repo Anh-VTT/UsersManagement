@@ -5,7 +5,6 @@
 package fa3w.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +29,13 @@ public class MainController extends HttpServlet {
     private static final String CREATE_PAGE_VIEW = "createPage.jsp";
     private static final String CREATE = "Create";
     private static final String CREATE_CONTROLLER = "CreateController";
+    private static final String SHOPPING_PAGE = "Shopping Page";
+    private static final String SHOPPING_PAGE_VIEW = "shopping.jsp";
+    private static final String SEARCH_PRODUCT = "Search Product";
+    private static final String SEARCH_PRODUCT_CONTROLLER = "SearchProductController";
+    private static final String ADD = "Add";
+    private static final String ADD_CONTROLLER = "AddController";
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,6 +57,12 @@ public class MainController extends HttpServlet {
                 url = CREATE_PAGE_VIEW;
             } else if (CREATE.equals(action)) {
                 url = CREATE_CONTROLLER;
+            }else if (SHOPPING_PAGE.equals(action)) {
+                url = SHOPPING_PAGE_VIEW;
+            }else if (SEARCH_PRODUCT.equals(action)) {
+                url = SEARCH_PRODUCT_CONTROLLER;
+            }else if (ADD.equals(action)) {
+                url = ADD_CONTROLLER;
             }
 
         } catch (Exception e) {

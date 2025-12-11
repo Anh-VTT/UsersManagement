@@ -26,5 +26,9 @@
         Full Name:<%= loginUser.getFullName()%></br>
         Role ID:<%= loginUser.getRoleID()%></br>
         Password:<%= loginUser.getPassword()%></br>
+        <a href="MainController?action=Shopping Page">Fitchew Shop</a>
+        <form action="MainController" method="POST">
+            <input type="submit" name="action" value="Shopping Page"/>
+        </form>
     </body>
 </html>

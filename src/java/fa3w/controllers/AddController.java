@@ -4,46 +4,51 @@
  */
 package fa3w.controllers;
 
+import fa3w.product.Cart;
 import fa3w.product.ProductDAO;
 import fa3w.product.ProductDTO;
-import fa3w.user.UserDAO;
-import fa3w.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author hd
+ * @author votra
  */
-@WebServlet(name = "SearchController", urlPatterns = {"/SearchController"})
-public class SearchController extends HttpServlet {
+@WebServlet(name = "AddController", urlPatterns = {"/AddController"})
+public class AddController extends HttpServlet {
 
-    private static final String ERROR="admin.jsp";
-    private static final String SUCCESS="admin.jsp";
-    private static final String NO_RESULT="No result !";
+    private static final String ERROR="SearchProductController";
+    private static final String SUCCESS="SearchProductController";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url= ERROR;
+         String url= ERROR;
         try {
-            String search = request.getParameter("search");
-            UserDAO dao= new UserDAO();
-            List<UserDTO> listUser= dao.getListUser(search);
-            if(listUser.size()>0){
-                request.setAttribute("LIST_USER", listUser);
-                url= SUCCESS;
-            }else{
-                request.setAttribute("ERROR", NO_RESULT);
+            String id = request.getParameter("id");
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            HttpSession session = request.getSession();
+            Cart cart = (Cart) session.getAttribute("CART");
+            if(cart == null){
+                cart = new Cart();
             }
+            ProductDAO dao= new ProductDAO();
+            ProductDTO product= dao.getProduct(id);
+            product.setQuantity(quantity);
+            boolean check = cart.add(product);
+            if(check){
+                session.setAttribute("CART", cart);
+                url= SUCCESS;
+                request.setAttribute("MESSAGE", "add " + quantity + ": " + product.getName());
+            }
+            
         } catch (Exception e) {
-            log("Error at SearchController: "+ e.toString());
+            log("Error at AddController: "+ e.toString());
         }finally{
             request.getRequestDispatcher(url).forward(request, response);
         }

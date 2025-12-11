@@ -19,31 +19,33 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author hd
+ * @author votra
  */
-@WebServlet(name = "SearchController", urlPatterns = {"/SearchController"})
-public class SearchController extends HttpServlet {
+@WebServlet(name = "SearchProductController", urlPatterns = {"/SearchProductController"})
+public class SearchProductController extends HttpServlet {
 
-    private static final String ERROR="admin.jsp";
-    private static final String SUCCESS="admin.jsp";
+    private static final String ERROR="shopping.jsp";
+    private static final String SUCCESS="shopping.jsp";
     private static final String NO_RESULT="No result !";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String url= ERROR;
         try {
             String search = request.getParameter("search");
-            UserDAO dao= new UserDAO();
-            List<UserDTO> listUser= dao.getListUser(search);
-            if(listUser.size()>0){
-                request.setAttribute("LIST_USER", listUser);
+            ProductDAO dao= new ProductDAO();
+            List<ProductDTO> listProduct= dao.getListProduct(search);
+            if(listProduct.size()>0){
+                request.setAttribute("LIST_PRODUCT", listProduct);
                 url= SUCCESS;
             }else{
-                request.setAttribute("ERROR", NO_RESULT);
+                request.setAttribute("ERROR", "No Product to search !!");
             }
+            
         } catch (Exception e) {
-            log("Error at SearchController: "+ e.toString());
+            log("Error at SearchProductController: "+ e.toString());
         }finally{
             request.getRequestDispatcher(url).forward(request, response);
         }
