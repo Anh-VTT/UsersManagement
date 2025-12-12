@@ -29,6 +29,7 @@
         <form action="MainController">
             Name: <input type="text" name="search" value="<%= search%>" required=""/>
             <input type="submit" name="action" value="Search Product"/>
+            <input type="submit" name="action" value="View Cart"/>
         </form>
         <%
             List<ProductDTO> list = (List<ProductDTO>) request.getAttribute("LIST_PRODUCT");

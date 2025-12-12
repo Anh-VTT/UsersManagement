@@ -12,11 +12,12 @@ import java.util.Map;
  * @author votra
  */
 public class Cart {
+
     private Map<String, ProductDTO> cart;
-    
+
     public Cart() {
     }
-    
+
     public Cart(Map<String, ProductDTO> cart) {
         this.cart = cart;
     }
@@ -32,10 +33,10 @@ public class Cart {
     public boolean add(ProductDTO product) {
         boolean check = false;
         try {
-            if(this.cart == null){
+            if (this.cart == null) {
                 this.cart = new HashMap<>();
             }
-            if(this.cart.containsKey(product.getId())){
+            if (this.cart.containsKey(product.getId())) {
                 int currentQuantity = this.cart.get(product.getId()).getQuantity();
                 product.setQuantity(currentQuantity + product.getQuantity());
             }
@@ -46,6 +47,30 @@ public class Cart {
         return check;
     }
 
-    
-    
+    public boolean edit(String id, int quantity) {
+        boolean check = false;
+        try {
+            if (this.cart != null) {
+                ProductDTO product = this.cart.get(id);
+                product.setQuantity(quantity);
+                this.cart.replace(id, product);
+                check = true;
+            }
+        } catch (Exception e) {
+        }
+        return check;
+    }
+
+    public boolean remove(String id) {
+        boolean check = false;
+        try {
+            if (this.cart != null) {
+                this.cart.remove(id);
+                check = true;
+            }
+        } catch (Exception e) {
+        }
+        return check;
+    }
+
 }

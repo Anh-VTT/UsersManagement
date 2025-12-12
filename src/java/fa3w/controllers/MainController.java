@@ -35,6 +35,12 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_PRODUCT_CONTROLLER = "SearchProductController";
     private static final String ADD = "Add";
     private static final String ADD_CONTROLLER = "AddController";
+    private static final String VIEW_CART = "View Cart";
+    private static final String VIEW_CART_VIEW = "viewCart.jsp";
+    private static final String EDIT = "Edit";
+    private static final String EDIT_CONTROLLER = "EditController";
+    private static final String REMOVE = "Remove";
+    private static final String REMOVE_CONTROLLER = "RemoveController";
     
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -63,6 +69,12 @@ public class MainController extends HttpServlet {
                 url = SEARCH_PRODUCT_CONTROLLER;
             }else if (ADD.equals(action)) {
                 url = ADD_CONTROLLER;
+            }else if (VIEW_CART.equals(action)) {
+                url = VIEW_CART_VIEW;
+            }else if (EDIT.equals(action)) {
+                url = EDIT_CONTROLLER;
+            }else if (REMOVE.equals(action)) {
+                url = REMOVE_CONTROLLER;
             }
 
         } catch (Exception e) {
