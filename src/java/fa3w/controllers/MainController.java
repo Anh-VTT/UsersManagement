@@ -41,6 +41,8 @@ public class MainController extends HttpServlet {
     private static final String EDIT_CONTROLLER = "EditController";
     private static final String REMOVE = "Remove";
     private static final String REMOVE_CONTROLLER = "RemoveController";
+    private static final String CHECKOUT = "Checkout";
+    private static final String CHECKOUT_CONTROLLER = "CheckoutController";
     
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -75,6 +77,8 @@ public class MainController extends HttpServlet {
                 url = EDIT_CONTROLLER;
             }else if (REMOVE.equals(action)) {
                 url = REMOVE_CONTROLLER;
+            }else if (CHECKOUT.equals(action)) {
+                url = CHECKOUT_CONTROLLER;
             }
 
         } catch (Exception e) {

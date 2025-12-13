@@ -7,6 +7,7 @@
 <%@page import="fa3w.user.UserDTO"%>
 <%@page import="fa3w.product.Cart"%>
 <%@page import="fa3w.product.ProductDTO"%>
+<%@page import="java.util.Map"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,6 +25,39 @@
             }
         %>
         <h1>List product in shopping cart</h1>
+        
+        <%
+            String successMessage = (String) request.getAttribute("SUCCESS_MESSAGE");
+            if (successMessage != null) {
+        %>
+            <h3 style="color: green;"><%= successMessage %></h3>
+        <%
+            }
+
+            String errorMessage = (String) request.getAttribute("ERROR");
+            if (errorMessage != null) {
+        %>
+            <h3 style="color: red;"><%= errorMessage %></h3>
+        <%
+            }
+        
+            Map<String, String> stockErrors = (Map<String, String>) request.getAttribute("CHECKOUT_ERROR");
+            if (stockErrors != null) {
+        %>
+            <h3 style="color: red;">Could not process checkout due to stock issues:</h3>
+            <ul>
+        <%
+                for(String message : stockErrors.values()) {
+        %>
+                    <li style="color: red;"><%= message %></li>
+        <%
+                }
+        %>
+            </ul>
+        <%
+            }
+        %>
+
         <%
             Cart cart = (Cart) session.getAttribute("CART");
             if (cart != null && cart.getCart().size() > 0) {
@@ -73,7 +107,10 @@
             %>
         </tbody>
     </table>
-    Total:<%= total%>
+    Total:<%= total%><br>
+    <form action="MainController" method="POST">
+        <input type="submit" name="action" value="Checkout"/>
+    </form>
     <%
     } else {
     %>

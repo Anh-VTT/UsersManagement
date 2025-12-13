@@ -88,5 +88,51 @@ public class ProductDAO {
         }
         return product;
     }
+
+    public int getQuantity(String productID) throws SQLException {
+        int quantity = 0;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement("SELECT quantity FROM tblProducts WHERE productID = ?");
+                ptm.setString(1, productID);
+                rs = ptm.executeQuery();
+                if (rs.next()) {
+                    quantity = rs.getInt("quantity");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) rs.close();
+            if (ptm != null) ptm.close();
+            if (conn != null) conn.close();
+        }
+        return quantity;
+    }
+
+    public boolean updateQuantity(String productID, int quantity) throws SQLException {
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement("UPDATE tblProducts SET quantity = ? WHERE productID = ?");
+                ptm.setInt(1, quantity);
+                ptm.setString(2, productID);
+                check = ptm.executeUpdate() > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ptm != null) ptm.close();
+            if (conn != null) conn.close();
+        }
+        return check;
+    }
     
 }
