@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.naming.NamingException;
 
 public class OrderDAO {
 
@@ -14,7 +15,7 @@ public class OrderDAO {
     private static final String INSERT_ORDER = "INSERT INTO tblOrders(userID, date, total) VALUES(?,?,?)";
     private static final String INSERT_ORDER_DETAIL = "INSERT INTO tblOrderDetail(productID, orderID, price, quantity) VALUES(?,?,?,?)";
 
-    private int getLastOrderID() throws SQLException, ClassNotFoundException {
+    private int getLastOrderID() throws SQLException, ClassNotFoundException, NamingException {
         int lastID = 0;
         Connection conn = null;
         PreparedStatement ptm = null;
@@ -67,7 +68,7 @@ public class OrderDAO {
 //        }
 //        return 0; // Return 0 if insertion fails
 //    }
-    public int insertOrder(String userID, double total) throws SQLException, ClassNotFoundException {
+    public int insertOrder(String userID, double total) throws SQLException, ClassNotFoundException, NamingException {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null; // Cần ResultSet để lấy key
@@ -101,7 +102,7 @@ public class OrderDAO {
         return orderID;
     }
 
-    public boolean insertOrderDetail(OrderDetailDTO detail) throws SQLException, ClassNotFoundException {
+    public boolean insertOrderDetail(OrderDetailDTO detail) throws SQLException, ClassNotFoundException, NamingException {
         boolean check = false;
         Connection conn = null;
         PreparedStatement ptm = null;

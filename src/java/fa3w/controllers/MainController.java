@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author hd
- */
 public class MainController extends HttpServlet {
 
     private static final String WELCOME = "login.jsp";
@@ -43,6 +39,13 @@ public class MainController extends HttpServlet {
     private static final String REMOVE_CONTROLLER = "RemoveController";
     private static final String CHECKOUT = "Checkout";
     private static final String CHECKOUT_CONTROLLER = "CheckoutController";
+    //Send Mail
+    private static final String EMAIL_PAGE = "Send Email";
+    private static final String EMAIL_PAGE_VIEW = "send-email.jsp";
+    private static final String SENDEMAIL = "SendEmail";
+    private static final String SENDEMAIL_CONTROLLER = "SendEmailController";
+    private static final String LOGOUT = "Logout";
+    private static final String LOGOUT_CONTROLLER = "LogoutController";
     
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -53,19 +56,19 @@ public class MainController extends HttpServlet {
             String action = request.getParameter("action");
             if (action == null) {
                 url = WELCOME;
-            } else if (LOGIN.equals(action)) {
+            } else if (LOGIN.equals(action)) {//login
                 url = LOGIN_CONTROLLER;
-            } else if (SEARCH.equals(action)) {
+            } else if (SEARCH.equals(action)) {//search
                 url = SEARCH_CONTROLLER;
-            } else if (UPDATE.equals(action)) {
+            } else if (UPDATE.equals(action)) {//update
                 url = UPDATE_CONTROLLER;
-            } else if (DELETE.equals(action)) {
+            } else if (DELETE.equals(action)) {//delete
                 url = DELETE_CONTROLLER;
-            } else if (CREATE_PAGE.equals(action)) {
+            } else if (CREATE_PAGE.equals(action)) {//create
                 url = CREATE_PAGE_VIEW;
             } else if (CREATE.equals(action)) {
                 url = CREATE_CONTROLLER;
-            }else if (SHOPPING_PAGE.equals(action)) {
+            }else if (SHOPPING_PAGE.equals(action)) {//shopping
                 url = SHOPPING_PAGE_VIEW;
             }else if (SEARCH_PRODUCT.equals(action)) {
                 url = SEARCH_PRODUCT_CONTROLLER;
@@ -77,8 +80,14 @@ public class MainController extends HttpServlet {
                 url = EDIT_CONTROLLER;
             }else if (REMOVE.equals(action)) {
                 url = REMOVE_CONTROLLER;
-            }else if (CHECKOUT.equals(action)) {
+            }else if (CHECKOUT.equals(action)) {//check out
                 url = CHECKOUT_CONTROLLER;
+            }else if(EMAIL_PAGE.equals(action)){//Email 
+                url = EMAIL_PAGE_VIEW;
+            }else if(SENDEMAIL.equals(action)){
+                url = SENDEMAIL_CONTROLLER;
+            }else if(LOGOUT.equals(action)){
+                url = LOGOUT_CONTROLLER;
             }
 
         } catch (Exception e) {

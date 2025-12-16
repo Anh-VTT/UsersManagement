@@ -25,6 +25,12 @@
                 search = "";
         %>
         Welcome:<%= loginUser.getFullName()%>
+        <form action="MainController" method="POST">
+            <input type="submit" name="action" value="Logout"/>
+        </form>
+        <a href="MainController?action=Logout">Logout</a>
+        </br>
+        <a href="MainController?action=Send Email">Send Email</a>
         <form action="MainController">
             Search<input type="text" name="search" value="<%= search%>" required=""/>
             <input type="submit" name="action" value="Search"/>
