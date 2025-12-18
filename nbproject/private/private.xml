@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/user.jsp</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/WEB-INF/web.xml</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/product/Cart.java</file>
+            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/controllers/UpdateController.java</file>
             <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/controllers/LoginController.java</file>
             <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/controllers/MainController.java</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/META-INF/context.xml</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/send-email.jsp</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/viewCart.jsp</file>
             <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/admin.jsp</file>
             <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/user/UserDAO.java</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/controllers/LogoutController.java</file>
-            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/utils/DBUtils.java</file>
+            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/web/login.jsp</file>
+            <file>file:/D:/FPT-Learning/FA_25/Pre_PRJ301/UserManagement3W/src/java/fa3w/controllers/DeleteController.java</file>
         </group>
     </open-files>
 </project-private>

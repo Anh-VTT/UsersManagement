@@ -1,0 +1,209 @@
+/* Màu sắc */
+:root {
+    --color-primary: #064789; /* Xanh đậm */
+    --color-secondary: #427AA1; /* Xanh trung bình */
+    --color-background: #EBF2FA; /* Trắng xanh nhạt */
+    --color-text-dark: #333;
+    --color-error: #cc0000;
+    --color-success: #008000;
+}
+
+/* ------------------------------------- */
+/* 1. Body and Layout */
+/* ------------------------------------- */
+
+.cart-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cart-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+/* ------------------------------------- */
+/* 2. Thông báo và Lỗi */
+/* ------------------------------------- */
+
+.message {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message {
+    color: var(--color-error);
+    background-color: #ffe0e0;
+    border: 1px solid var(--color-error);
+}
+
+.success-message {
+    color: var(--color-success);
+    background-color: #e0ffe0;
+    border: 1px solid var(--color-success);
+}
+
+.error-list {
+    list-style-type: disc;
+    margin-left: 40px;
+    color: var(--color-error);
+}
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 18px;
+    color: var(--color-secondary);
+    padding: 30px 0;
+}
+
+/* ------------------------------------- */
+/* 3. Bảng Giỏ hàng */
+/* ------------------------------------- */
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid var(--color-primary);
+}
+
+.table-head th {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 10px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.table-body .table-row:nth-child(even) {
+    background-color: var(--color-background); /* Hàng chẵn dùng màu nền nhạt */
+}
+
+.table-body td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Định dạng trường Quantity */
+.input-quantity {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid var(--color-secondary);
+    border-radius: 3px;
+}
+
+.cell-total {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+/* ------------------------------------- */
+/* 4. Nút bấm */
+/* ------------------------------------- */
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 70px; /* Cố định chiều rộng cho nút trong bảng */
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Vàng */
+    color: var(--color-text-dark);
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-remove {
+    background-color: #dc3545; /* Đỏ */
+    color: white;
+}
+
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.btn-checkout {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    width: auto; /* Để nút Checkout tự điều chỉnh kích thước */
+}
+
+.btn-checkout:hover {
+    background-color: #043564;
+}
+
+.add-more-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.add-more-link:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+/* ------------------------------------- */
+/* 5. Tổng kết Giỏ hàng */
+/* ------------------------------------- */
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Đẩy Total và Checkout sang phải */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+}
+
+.total-display {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.total-value {
+    color: var(--color-error); /* Thể hiện tổng tiền nổi bật */
+}
+
+.checkout-form {
+    margin: 0;
+}

@@ -4,12 +4,9 @@
  */
 package fa3w.controllers;
 
-import fa3w.product.ProductDAO;
-import fa3w.product.ProductDTO;
 import fa3w.user.UserDAO;
 import fa3w.user.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

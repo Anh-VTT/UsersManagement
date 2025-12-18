@@ -1,0 +1,129 @@
+/* Màu sắc */
+:root {
+    --color-primary: #064789; /* Xanh đậm */
+    --color-secondary: #427AA1; /* Xanh trung bình */
+    --color-background: #EBF2FA; /* Trắng xanh nhạt */
+    --color-text-dark: #000;
+}
+
+/* ------------------------------------- */
+/* 1. Body and Layout */
+/* ------------------------------------- */
+
+.user-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background); /* Nền trắng xanh nhạt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--color-text-dark);
+}
+
+.user-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Giới hạn chiều rộng để dễ nhìn */
+}
+
+/* ------------------------------------- */
+/* 2. Tiêu đề và Thông tin */
+/* ------------------------------------- */
+
+.main-title {
+    color: var(--color-primary);
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+.user-info-section {
+    margin-bottom: 25px;
+}
+
+.info-item {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    font-weight: bold; /* Tên trường (User ID, Full Name) đậm */
+}
+
+.info-value {
+    font-weight: normal; /* Giá trị (hoadnt, Hoa Doan) thường */
+    margin-left: 5px;
+    color: var(--color-primary); /* Đặt giá trị bằng màu chính */
+}
+
+/* ------------------------------------- */
+/* 3. Nút bấm và Liên kết */
+/* ------------------------------------- */
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa các nút */
+    align-items: flex-start; /* Sắp xếp các nút ở bên trái */
+    padding-top: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 180px; /* Đồng nhất chiều rộng nút */
+    text-align: center;
+}
+
+/* Nút chính (Logout) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #043564; /* Màu đậm hơn khi hover */
+}
+
+/* Nút phụ (Shopping Page) */
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #376587;
+}
+
+/* Liên kết (Fitchew Shop, Logout link) */
+.btn-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    width: auto; /* Để link không bị giới hạn chiều rộng như nút */
+    padding: 0;
+    font-size: 16px;
+    display: block; /* Để link nằm trên một dòng riêng */
+}
+
+.btn-link:hover {
+    color: var(--color-secondary);
+}
+
+/* Form cho nút submit */
+.form-btn {
+    margin: 0;
+}
+
+/* Đảm bảo nút submit trong form cũng có kiểu dáng nút */
+.form-btn input[type="submit"] {
+    width: 180px;
+}

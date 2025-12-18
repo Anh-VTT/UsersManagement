@@ -1,0 +1,132 @@
+/* Màu sắc */
+:root {
+    --color-primary: #064789; /* Xanh đậm */
+    --color-secondary: #427AA1; /* Xanh trung bình */
+    --color-background: #EBF2FA; /* Trắng xanh nhạt */
+    --color-text-dark: #333;
+    --color-error: #cc0000;
+    --color-success: #008000;
+}
+
+/* ------------------------------------- */
+/* 1. Body and Layout */
+/* ------------------------------------- */
+
+.email-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Để container ở trên cùng */
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+.email-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+    color: var(--color-primary);
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 28px;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 10px;
+}
+
+/* ------------------------------------- */
+/* 2. Form Nhập liệu */
+/* ------------------------------------- */
+
+.email-form {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-label {
+    font-weight: bold;
+    white-space: nowrap; /* Giữ nhãn không bị ngắt dòng */
+}
+
+.form-input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Cho phép input mở rộng tối đa */
+    font-size: 16px;
+}
+
+/* ------------------------------------- */
+/* 3. Nút bấm */
+/* ------------------------------------- */
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary { /* SendEmail */
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #043564;
+}
+
+/* ------------------------------------- */
+/* 4. Thông báo và Liên kết */
+/* ------------------------------------- */
+
+.message-section {
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: var(--color-error);
+    background-color: #ffe0e0;
+}
+
+.success-message {
+    color: var(--color-success);
+    background-color: #e0ffe0;
+}
+
+.back-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}

@@ -1,0 +1,215 @@
+/* Màu sắc */
+:root {
+    --color-primary: #064789; /* Xanh đậm */
+    --color-secondary: #427AA1; /* Xanh trung bình */
+    --color-background: #EBF2FA; /* Trắng xanh nhạt */
+    --color-text-dark: #333;
+    --color-error: #cc0000;
+    --color-success: #008000;
+}
+
+/* ------------------------------------- */
+/* 1. Body and Layout */
+/* ------------------------------------- */
+
+.shopping-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.shopping-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-title {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+/* ------------------------------------- */
+/* 2. Form Tìm kiếm */
+/* ------------------------------------- */
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    margin-left: 5px;
+}
+
+/* ------------------------------------- */
+/* 3. Nút bấm */
+/* ------------------------------------- */
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary { /* Search Product */
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #043564;
+}
+
+.btn-secondary { /* View Cart */
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #376587;
+}
+
+.btn-add { /* Add button trong bảng */
+    background-color: #28a745; /* Màu xanh lá cho nút Add */
+    color: white;
+    padding: 5px 10px;
+}
+
+.btn-add:hover {
+    background-color: #1e7e34;
+}
+
+/* ------------------------------------- */
+/* 4. Bảng Sản phẩm */
+/* ------------------------------------- */
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 2px solid var(--color-primary);
+}
+
+.table-head th {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid white;
+}
+
+.table-body .table-row {
+    background-color: #f9f9f9;
+}
+
+.table-body .table-row:nth-child(even) {
+    background-color: var(--color-background); /* Hàng chẵn dùng màu nền nhạt */
+}
+
+.table-body td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* Định dạng các trường đặc biệt trong bảng */
+.input-id {
+    border: none;
+    background: transparent;
+    width: 70px; /* Cố định chiều rộng cho ID */
+    font-size: 14px;
+    color: var(--color-text-dark);
+}
+
+.input-quantity {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid var(--color-secondary);
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+/* ------------------------------------- */
+/* 5. Thông báo (Lỗi/Thành công) */
+/* ------------------------------------- */
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message {
+    color: var(--color-error);
+    /* border: 1px solid var(--color-error); */
+    /* background-color: #fdd; */
+}
+
+.success-message {
+    color: var(--color-success);
+    /* border: 1px solid var(--color-success); */
+    /* background-color: #dfd; */
+}
+/* ------------------------------------- */
+/* 6. Logout Button Positioning */
+/* ------------------------------------- */
+
+.logout-wrapper {
+    /* Sử dụng flexbox để căn giữa theo chiều ngang */
+    display: flex; 
+    justify-content: center; /* Căn giữa nội dung (form) */
+    margin-top: 30px; /* Thêm khoảng cách phía trên bảng/thông báo */
+    padding-top: 20px;
+    border-top: 1px solid #ddd; /* Đường kẻ phân cách */
+}
+
+/* (Giữ nguyên class .btn-logout bạn đã định nghĩa) */
+.btn-logout {
+    background: #064789;
+    color: #EBF2FA;
+    border: 2px solid #064789;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #427AA1;
+    border-color: #427AA1;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(6, 71, 137, 0.3);
+}
